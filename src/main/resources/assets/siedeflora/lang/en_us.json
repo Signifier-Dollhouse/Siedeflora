@@ -1,0 +1,13 @@
+{
+  "itemGroup.siedeflora": "Example Mod Tab",
+  "block.siedeflora.example_block": "Example Block",
+  "item.siedeflora.example_item": "Example Item",
+
+  "siedeflora.configuration.title": "Siedeflora Configs",
+  "siedeflora.configuration.section.siedeflora.common.toml": "Siedeflora Configs",
+  "siedeflora.configuration.section.siedeflora.common.toml.title": "Siedeflora Configs",
+  "siedeflora.configuration.items": "Item List",
+  "siedeflora.configuration.logDirtBlock": "Log Dirt Block",
+  "siedeflora.configuration.magicNumberIntroduction": "Magic Number Text",
+  "siedeflora.configuration.magicNumber": "Magic Number"
+}
