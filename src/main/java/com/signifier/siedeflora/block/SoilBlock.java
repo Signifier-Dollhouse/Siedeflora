@@ -25,6 +25,7 @@ public class SoilBlock extends BaseEntityBlock
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        // if we want add some blockstates, remember to add them here
         super.createBlockStateDefinition(builder);
     }
 
@@ -40,7 +41,7 @@ public class SoilBlock extends BaseEntityBlock
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return null;
+        return new SoilBlockEntity(blockPos, blockState);
     }
 
     @Override

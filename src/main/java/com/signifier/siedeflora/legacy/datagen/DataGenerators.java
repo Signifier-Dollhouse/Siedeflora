@@ -1,6 +1,6 @@
-package com.signifier.siedeflora.datagen;
+package com.signifier.siedeflora.legacy.datagen;
 
-import com.signifier.siedeflora.Siedeflora;
+import com.signifier.siedeflora.legacy.Siedeflora;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;

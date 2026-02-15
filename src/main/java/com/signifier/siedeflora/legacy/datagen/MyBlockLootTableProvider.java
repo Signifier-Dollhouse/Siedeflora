@@ -1,6 +1,6 @@
-package com.signifier.siedeflora.datagen;
+package com.signifier.siedeflora.legacy.datagen;
 
-import com.signifier.siedeflora.reg.MyBlocks;
+import com.signifier.siedeflora.legacy.reg.MyBlocks;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;

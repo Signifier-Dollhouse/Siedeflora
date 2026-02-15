@@ -1,6 +1,6 @@
-package com.signifier.siedeflora.reg;
+package com.signifier.siedeflora.legacy.reg;
 
-import com.signifier.siedeflora.Siedeflora;
+import com.signifier.siedeflora.legacy.Siedeflora;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;

@@ -1,4 +1,4 @@
-package com.signifier.siedeflora;
+package com.signifier.siedeflora.legacy;
 
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
@@ -11,7 +11,7 @@ import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
-@Mod(value = Siedeflora.MOD_ID, dist = Dist.CLIENT)
+//@Mod(value = Siedeflora.MOD_ID, dist = Dist.CLIENT)
 // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
 @EventBusSubscriber(modid = Siedeflora.MOD_ID, value = Dist.CLIENT)
 public class ExampleModClient {

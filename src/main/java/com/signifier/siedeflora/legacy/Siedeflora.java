@@ -1,8 +1,8 @@
-package com.signifier.siedeflora;
+package com.signifier.siedeflora.legacy;
 
-import com.signifier.siedeflora.reg.MyBlocks;
-import com.signifier.siedeflora.reg.MyCreativeTabs;
-import com.signifier.siedeflora.reg.MyItems;
+import com.signifier.siedeflora.legacy.reg.MyBlocks;
+import com.signifier.siedeflora.legacy.reg.MyCreativeTabs;
+import com.signifier.siedeflora.legacy.reg.MyItems;
 import net.minecraft.world.item.*;
 import org.slf4j.Logger;
 
@@ -21,7 +21,7 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
-@Mod(Siedeflora.MOD_ID)
+//@Mod(Siedeflora.MOD_ID)
 public class Siedeflora {
 
     public static final String MOD_ID = "siedeflora";

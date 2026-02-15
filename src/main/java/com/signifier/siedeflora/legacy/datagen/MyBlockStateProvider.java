@@ -1,6 +1,6 @@
-package com.signifier.siedeflora.datagen;
+package com.signifier.siedeflora.legacy.datagen;
 
-import com.signifier.siedeflora.Siedeflora;
+import com.signifier.siedeflora.legacy.Siedeflora;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;

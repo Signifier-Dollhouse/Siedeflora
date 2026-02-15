@@ -4,6 +4,7 @@ import com.signifier.siedeflora.block.entity.SoilBlockEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -11,11 +12,11 @@ import static com.signifier.siedeflora.Siedeflora.MODID;
 
 public class BlockRegistry
 {
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(Registries.BLOCK, MODID);
-    public static final DeferredHolder<Block, SoilBlock> SOIL = BLOCKS.register("soil", () -> new SoilBlock(
+    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
+    public static final DeferredBlock<SoilBlock> SOIL = BLOCKS.register("soil", () -> new SoilBlock(
             Block.Properties.of().strength(1.0f))
     );
-    public static final DeferredHolder<Block, AdvancedCropBlock> ADVANCED_CROP = BLOCKS.register("test_crop",
+    public static final DeferredBlock<AdvancedCropBlock> ADVANCED_CROP = BLOCKS.register("test_crop",
                                                                                                  () -> new AdvancedCropBlock(
                                                                                                          Block.Properties.of().strength(0.5f))
     );
