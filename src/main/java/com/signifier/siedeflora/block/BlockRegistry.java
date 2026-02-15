@@ -17,8 +17,8 @@ public class BlockRegistry
     );
     public static final DeferredHolder<Block, AdvancedCropBlock> ADVANCED_CROP = BLOCKS.register("test_crop",
                                                                                                  () -> new AdvancedCropBlock(
-                                                                                                         Block.Properties.of().strength(
-                                                                                                                 0
+                                                                                                         Block.Properties.of().strength(0.5f))
+    );
 
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(
             Registries.BLOCK_ENTITY_TYPE, MODID);
