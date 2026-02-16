@@ -1,6 +1,7 @@
 package com.signifier.siedeflora;
 
 import com.signifier.siedeflora.block.BlockRegistry;
+import com.signifier.siedeflora.item.ItemRegistry;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -40,5 +41,6 @@ public class Siedeflora {
     public Siedeflora(IEventBus modEventBus, ModContainer modContainer) {
         BlockRegistry.BLOCKS.register(modEventBus);
         BlockRegistry.BLOCK_ENTITIES.register(modEventBus);
+        ItemRegistry.ITEMS.register(modEventBus);
     }
 }
