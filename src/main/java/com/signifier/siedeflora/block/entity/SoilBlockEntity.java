@@ -1,5 +1,6 @@
 package com.signifier.siedeflora.block.entity;
 
+import com.signifier.siedeflora.block.AdvancedCropBlock;
 import com.signifier.siedeflora.block.BlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -48,5 +49,38 @@ public class SoilBlockEntity extends BlockEntity
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, SoilBlockEntity blockEntity) {
         // TODO update our soil properties here
+        // 30s一次
+        if (level.getGameTime() % 600 == 0) {
+            // 检查上方是否有作物方块
+            BlockPos abovePos = pos.above();
+            BlockState aboveState = level.getBlockState(abovePos);
+            boolean hasCropAbove = aboveState.getBlock() instanceof AdvancedCropBlock;
+
+            // 如果没有作物且营养低于60
+            if (!hasCropAbove && blockEntity.nutrition < 60) {
+                // 缓慢恢复营养值（每次+5）
+                blockEntity.setNutrition(blockEntity.nutrition + 5);
+            }
+        }
+    }
+
+    private static void updateEnvironmentProperties(Level level, BlockPos pos, SoilBlockEntity blockEntity) {
+        // 模拟环境对土壤属性的影响
+        // 未实现
+
+        // 根据昼夜调整温度
+        float daytime = level.getTimeOfDay(1.0f); // 0-1表示一天中的时间
+        blockEntity.temperature = 15 + (int)(10 * Math.sin(daytime * Math.PI * 2));
+
+        blockEntity.setChanged();
+    }
+
+    // 提供获取营养的方法
+    public int getNutrition() {
+        return nutrition;
+    }
+    public void setNutrition(int nutrition) {
+        this.nutrition = Math.min(Math.max(nutrition, 0), MAX_NUTRITION);
+        setChanged(); // 标记数据已更改
     }
 }

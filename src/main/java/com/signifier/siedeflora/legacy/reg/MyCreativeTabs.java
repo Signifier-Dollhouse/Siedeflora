@@ -1,5 +1,7 @@
 package com.signifier.siedeflora.legacy.reg;
 
+import com.signifier.siedeflora.block.BlockRegistry;
+import com.signifier.siedeflora.item.ItemRegistry;
 import com.signifier.siedeflora.legacy.Siedeflora;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -14,16 +16,17 @@ import java.util.function.Supplier;
 public class MyCreativeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Siedeflora.MOD_ID);
-    public static final Supplier<CreativeModeTab> FLORETON_ITEM_TAB = CREATIVE_MODE_TABS.register("floreton_item_tab",
+    public static final Supplier<CreativeModeTab> SIEDEFLORA_ITEM_TAB = CREATIVE_MODE_TABS.register("siedeflora_item_tab",
             ()-> CreativeModeTab.builder()
                     // 图标
                     .icon(()-> new ItemStack(Items.DIAMOND))
                     // 确定lang文件中的key
-                    .title(Component.translatable("creativetab.floreton.item_title"))
+                    .title(Component.translatable("creativetab.siedeflora.item_title"))
                     // 接收物品法
                     .displayItems((itemDisplayParameters, output) -> {
                         // 示例
-                        output.accept(MyItems.CESHI);
+                        output.accept(ItemRegistry.SOIL);
+                        output.accept(ItemRegistry.ADVANCED_CROP);
                         output.accept(Items.DEBUG_STICK);
 
                     })
