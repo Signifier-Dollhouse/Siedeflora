@@ -2,7 +2,6 @@ package com.signifier.siedeflora.block.entity;
 
 import com.signifier.siedeflora.block.BlockRegistry;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -27,23 +26,23 @@ public class SoilBlockEntity extends BlockEntity
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        tag.putInt("nutrition", nutrition);
-        tag.putInt("moisture", moisture);
-        tag.putInt("looseness", looseness);
-        tag.putInt("temperature", temperature);
-        tag.putInt("toxicity", toxicity);
-    }
-
-    @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
+    public void load(CompoundTag tag) {
+        super.load(tag);
         this.nutrition = tag.getInt("nutrition");
         this.moisture = tag.getInt("moisture");
         this.looseness = tag.getInt("looseness");
         this.temperature = tag.getInt("temperature");
         this.toxicity = tag.getInt("toxicity");
+    }
+
+    @Override
+    protected void saveAdditional(CompoundTag tag) {
+        super.saveAdditional(tag);
+        tag.putInt("nutrition", nutrition);
+        tag.putInt("moisture", moisture);
+        tag.putInt("looseness", looseness);
+        tag.putInt("temperature", temperature);
+        tag.putInt("toxicity", toxicity);
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, SoilBlockEntity blockEntity) {

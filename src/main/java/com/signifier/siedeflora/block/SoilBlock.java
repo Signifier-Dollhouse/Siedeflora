@@ -1,6 +1,5 @@
 package com.signifier.siedeflora.block;
 
-import com.mojang.serialization.MapCodec;
 import com.signifier.siedeflora.block.entity.SoilBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -17,8 +16,6 @@ import org.jetbrains.annotations.Nullable;
 
 public class SoilBlock extends BaseEntityBlock
 {
-    public static final MapCodec<SoilBlock> CODEC = simpleCodec(SoilBlock::new);
-
     protected SoilBlock(Properties properties) {
         super(properties);
     }
@@ -27,11 +24,6 @@ public class SoilBlock extends BaseEntityBlock
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         // if we want add some blockstates, remember to add them here
         super.createBlockStateDefinition(builder);
-    }
-
-    @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
-        return CODEC;
     }
 
     @Override
@@ -50,7 +42,7 @@ public class SoilBlock extends BaseEntityBlock
     }
 
     @Override
-    protected RenderShape getRenderShape(BlockState state) {
+    public RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
     }
 }

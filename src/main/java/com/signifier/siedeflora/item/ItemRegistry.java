@@ -4,12 +4,18 @@ import com.signifier.siedeflora.Siedeflora;
 import com.signifier.siedeflora.block.BlockRegistry;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.neoforged.neoforge.registries.DeferredItem;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
-public class ItemRegistry
+public interface ItemRegistry
 {
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Siedeflora.MODID);
-    public static final DeferredItem<BlockItem> SOIL = ITEMS.registerSimpleBlockItem(BlockRegistry.SOIL);
-    public static final DeferredItem<BlockItem> ADVANCED_CROP = ITEMS.registerSimpleBlockItem(BlockRegistry.ADVANCED_CROP);
+    DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Siedeflora.MODID);
+    RegistryObject<BlockItem> SOIL = registerSimpleBlockItem(BlockRegistry.SOIL);
+    RegistryObject<BlockItem> ADVANCED_CROP = registerSimpleBlockItem(BlockRegistry.ADVANCED_CROP);
+
+    static RegistryObject<BlockItem> registerSimpleBlockItem(RegistryObject<? extends Block> block) {
+        return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
+    }
 }
