@@ -2,9 +2,9 @@ package com.signifier.siedeflora.block;
 
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 
-public class StoveBlock extends HorizontalDirectionalBlock
+public class BellowsBlock extends HorizontalDirectionalBlock
 {
-    public StoveBlock(Properties properties) {
+    public BellowsBlock(Properties properties) {
         super(properties);
     }
 }

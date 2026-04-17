@@ -8,13 +8,16 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import org.jetbrains.annotations.Nullable;
 
-public class StewPotBlock extends BaseEntityBlock
+public class SteamerTileBlock extends BaseEntityBlock
 {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
-    public StewPotBlock(Properties properties) {
+    protected SteamerTileBlock(Properties properties) {
         super(properties);
     }
+
+
+
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
