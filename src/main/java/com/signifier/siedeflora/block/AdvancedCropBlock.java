@@ -47,7 +47,7 @@ public class AdvancedCropBlock extends CropBlock
     @Override
     protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         // 是否在加载区块
-        if (!level.isAreaLoaded(pos, 1)){
+        if (level.isAreaLoaded(pos, 1)){
             // 获取下方土壤方块实体
             BlockPos soilPos = pos.below();
             BlockEntity blockEntity = level.getBlockEntity(soilPos);
