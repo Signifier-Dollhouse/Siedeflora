@@ -1,6 +1,7 @@
 package com.signifier.siedeflora.block.entity;
 
 import com.signifier.siedeflora.block.BlockRegistry;
+import com.signifier.siedeflora.block.soil.NutritionLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.Level;
@@ -15,8 +16,15 @@ public class SoilBlockEntity extends BlockEntity
     public static final int MAX_TEMPERATURE = 50;
     public static final int MAX_TOXICITY = 100;
 
-    private int nutrition = 60;
+    private NutritionLevel nitro = NutritionLevel.MEDIUM;
+    private NutritionLevel phos = NutritionLevel.MEDIUM;
+    private NutritionLevel pota = NutritionLevel.MEDIUM;
+    // 有机质
+    private int organ = 60;
+    // 湿润度
     private int moisture = 40;
+
+    // 以下待定
     private int looseness = 60;
     private int temperature = 15;
     private int toxicity = 20;
@@ -28,7 +36,10 @@ public class SoilBlockEntity extends BlockEntity
     @Override
     public void load(CompoundTag tag) {
         super.load(tag);
-        this.nutrition = tag.getInt("nutrition");
+        this.nitro = NutritionLevel.valueOf(tag.getString("nitro"));
+        this.phos = NutritionLevel.valueOf(tag.getString("phos"));
+        this.pota = NutritionLevel.valueOf(tag.getString("pota"));
+        this.organ = tag.getInt("organ");
         this.moisture = tag.getInt("moisture");
         this.looseness = tag.getInt("looseness");
         this.temperature = tag.getInt("temperature");
@@ -38,7 +49,10 @@ public class SoilBlockEntity extends BlockEntity
     @Override
     protected void saveAdditional(CompoundTag tag) {
         super.saveAdditional(tag);
-        tag.putInt("nutrition", nutrition);
+        tag.putString("nitro", nitro.getSerializedName());
+        tag.putString("phos", phos.getSerializedName());
+        tag.putString("pota", pota.getSerializedName());
+        tag.putInt("organ", organ);
         tag.putInt("moisture", moisture);
         tag.putInt("looseness", looseness);
         tag.putInt("temperature", temperature);

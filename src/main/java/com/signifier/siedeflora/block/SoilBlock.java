@@ -1,5 +1,7 @@
 package com.signifier.siedeflora.block;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.signifier.siedeflora.block.entity.SoilBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -16,8 +18,15 @@ import org.jetbrains.annotations.Nullable;
 
 public class SoilBlock extends BaseEntityBlock
 {
+    public static final MapCodec<SoilBlock> CODEC = simpleCodec(SoilBlock::new);
+
     protected SoilBlock(Properties properties) {
         super(properties);
+    }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec() {
+        return CODEC;
     }
 
     @Override
