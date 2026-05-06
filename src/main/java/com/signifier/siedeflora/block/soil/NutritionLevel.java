@@ -8,13 +8,20 @@ import java.util.Locale;
 // 贫乏、低量、适常、丰盈和过饱和
 public enum NutritionLevel implements StringRepresentable
 {
-    POOR,
-    LOW,
-    MEDIUM,
-    RICH,
-    SATURATED;
+    POOR(0, 2),
+    LOW(3, 5),
+    MEDIUM(6, 9),
+    RICH(10, 13),
+    SATURATED(14, 15);
 
     public static final Codec<NutritionLevel> CODEC = StringRepresentable.fromEnum(NutritionLevel::values);
+    private final int from;
+    private final int to;
+    NutritionLevel(int from, int to)
+    {
+        this.from = from;
+        this.to = to;
+    }
 
     @Override
     public String getSerializedName() {
