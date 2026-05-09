@@ -1,7 +1,7 @@
 package com.signifier.siedeflora.block.entity;
 
 import com.signifier.siedeflora.block.BlockRegistry;
-import com.signifier.siedeflora.block.soil.NutritionLevel;
+import com.signifier.siedeflora.agriculture.NutritionLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.Level;

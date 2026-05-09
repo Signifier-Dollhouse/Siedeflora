@@ -1,4 +1,4 @@
-package com.signifier.siedeflora.crop.stage;
+package com.signifier.siedeflora.agriculture.crop.stage;
 
 import net.minecraft.resources.Identifier;
 
