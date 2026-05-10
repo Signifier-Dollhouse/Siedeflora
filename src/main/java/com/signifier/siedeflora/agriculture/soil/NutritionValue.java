@@ -53,11 +53,11 @@ public class NutritionValue
         }
         else if (this.restoreCountdown == 0) {
             this.add(1);
-            this.calculateNextRestore();
+            this.calcNextRestore();
         }
     }
 
-    private void calculateNextRestore() {
+    private void calcNextRestore() {
         // TODO
         this.restoreCountdown = -1;
     }
