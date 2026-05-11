@@ -1,24 +1,30 @@
 package com.signifier.siedeflora.agriculture.soil;
 
-import net.minecraft.resources.Identifier;
-
-public interface SoilState
+public class SoilState
 {
-    NutritionValue nitro();
+    private final NutritionValue nitro = new NutritionValue();
+    private final NutritionValue phos = new NutritionValue();
+    private final NutritionValue pota = new NutritionValue();
 
-    NutritionValue phos();
+    public NutritionValue nitro() {
+        return this.nitro;
+    }
 
-    NutritionValue pota();
+    public NutritionValue phos() {
+        return this.phos;
+    }
 
-    SoilTexture texture();
+    public NutritionValue pota() {
+        return this.pota;
+    }
 
-    default void setTexture(SoilTexture texture) {
+    public void setTexture(SoilTexture texture) {
         this.nitro().setLevel(texture.nitro());
         this.phos().setLevel(texture.phos());
         this.pota().setLevel(texture.pota());
     }
 
-    default void tick() {
+    public void tick() {
         this.nitro().tick();
         this.phos().tick();
         this.pota().tick();

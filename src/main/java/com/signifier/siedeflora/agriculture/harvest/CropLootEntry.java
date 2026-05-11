@@ -1,4 +1,4 @@
-package com.signifier.siedeflora.agriculture.crop.harvest;
+package com.signifier.siedeflora.agriculture.harvest;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.world.level.storage.loot.LootContext;

@@ -5,6 +5,7 @@ import com.signifier.siedeflora.item.ItemRegistry;
 import net.minecraft.resources.Identifier;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;

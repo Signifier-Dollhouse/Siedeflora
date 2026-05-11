@@ -10,15 +10,6 @@ public class NutritionValue
 
     public NutritionValue() {}
 
-    public NutritionValue(int value) {
-        this.value = (byte) value;
-    }
-
-    public NutritionValue(NutritionLevel level) {
-        this(level.minValue());
-        this.level = level;
-    }
-
     public int value() {
         return this.value;
     }
