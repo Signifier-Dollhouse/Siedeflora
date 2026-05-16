@@ -1,7 +1,13 @@
 package com.signifier.siedeflora.agriculture.soil;
 
+import net.minecraft.resources.Identifier;
+
 public class SoilState
 {
+    public static final int MAX_MOISTURE = 300;
+
+    private Identifier texture = SoilTexture.DEFAULT.id();
+    private int moisture = 50;
     private final NutritionValue nitro = new NutritionValue();
     private final NutritionValue phos = new NutritionValue();
     private final NutritionValue pota = new NutritionValue();
@@ -19,6 +25,7 @@ public class SoilState
     }
 
     public void setTexture(SoilTexture texture) {
+        this.texture = texture.id();
         this.nitro().setLevel(texture.nitro());
         this.phos().setLevel(texture.phos());
         this.pota().setLevel(texture.pota());
