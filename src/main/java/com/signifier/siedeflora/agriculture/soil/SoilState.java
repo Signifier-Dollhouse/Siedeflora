@@ -1,6 +1,9 @@
 package com.signifier.siedeflora.agriculture.soil;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class SoilState
 {
@@ -31,7 +34,7 @@ public class SoilState
         this.pota().setLevel(texture.pota());
     }
 
-    public void tick() {
+    public void tick(Level level, BlockPos pos, BlockState state) {
         this.nitro().tick();
         this.phos().tick();
         this.pota().tick();

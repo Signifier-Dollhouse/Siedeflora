@@ -10,8 +10,6 @@ import java.util.List;
 import java.util.function.Consumer;
 
 public class CropLootEntry extends LootPoolEntryContainer {
-
-
     protected CropLootEntry(List<LootItemCondition> conditions) {
         super(conditions);
     }

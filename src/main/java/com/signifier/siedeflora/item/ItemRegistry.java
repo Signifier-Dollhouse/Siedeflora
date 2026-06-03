@@ -4,15 +4,20 @@ import com.signifier.siedeflora.Siedeflora;
 import com.signifier.siedeflora.block.BlockRegistry;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public interface ItemRegistry
 {
-    DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Siedeflora.MODID);
-    RegistryObject<BlockItem> SOIL = registerSimpleBlockItem(BlockRegistry.SOIL);
-    RegistryObject<BlockItem> ADVANCED_CROP = registerSimpleBlockItem(BlockRegistry.ADVANCED_CROP);
+    DeferredRegister.Items ITEMS = DeferredRegister.createItems(Siedeflora.MODID);
 
-    static RegistryObject<BlockItem> registerSimpleBlockItem(RegistryObject<? extends Block> block) {
+    DeferredItem<Item> DEBUGGER = ITEMS.registerItem("debugger", id -> new CreativeGlovesItem(new Item.Properties()));
+
+    DeferredItem<BlockItem> SOIL = registerSimpleBlockItem(BlockRegistry.SOIL);
+//    DeferredItem<BlockItem> ADVANCED_CROP = registerSimpleBlockItem(BlockRegistry.ADVANCED_CROP);
+
+    static DeferredItem<BlockItem> registerSimpleBlockItem(DeferredBlock<?> block) {
         return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
     }
 }

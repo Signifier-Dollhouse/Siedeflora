@@ -2,6 +2,7 @@ package com.signifier.siedeflora.agriculture.crop;
 
 import com.signifier.siedeflora.agriculture.NutritionLevel;
 import com.signifier.siedeflora.agriculture.NutritionType;
+import net.minecraft.core.Holder;
 
 import java.util.EnumMap;
 import java.util.List;
@@ -11,10 +12,14 @@ import java.util.function.Predicate;
 
 public record GrowFunction(EnumMap<NutritionType, Nutritious> predicates,
                            Optional<Special> special,
-                           EnumMap<GrowType, Period> results) implements Function<GrowData, Period>
+                           EnumMap<GrowType, Holder<Period>> results) implements Function<GrowData, Holder<Period>>
 {
+    public boolean isEmpty() {
+        return predicates.isEmpty() && special.isEmpty() && results.isEmpty();
+    }
+
     @Override
-    public Period apply(GrowData growData) {
+    public Holder<Period> apply(GrowData growData) {
         if (special().isPresent() && special().get().predicate().test(growData)) {
             return special().get().result();
         }
@@ -30,7 +35,7 @@ public record GrowFunction(EnumMap<NutritionType, Nutritious> predicates,
         return results().get(allFine ? GrowType.FINE : GrowType.COMMON);
     }
 
-    public record Special(Predicate<GrowData> predicate, Period result) {}
+    public record Special(Predicate<GrowData> predicate, Holder<Period> result) {}
 
     public record Nutritious(List<NutritionLevel> primary,
                              List<NutritionLevel> secondary) implements Function<GrowData, GrowType>

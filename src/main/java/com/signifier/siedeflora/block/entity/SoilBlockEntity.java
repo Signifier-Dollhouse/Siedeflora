@@ -4,6 +4,7 @@ import com.signifier.siedeflora.agriculture.crop.CropState;
 import com.signifier.siedeflora.agriculture.soil.SoilState;
 import com.signifier.siedeflora.block.BlockRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
@@ -26,5 +27,10 @@ public class SoilBlockEntity extends BlockEntity
     @Override
     protected void saveAdditional(ValueOutput output) {
         super.saveAdditional(output);
+    }
+
+    public static void serverTick(Level level, BlockPos pos, BlockState state, SoilBlockEntity entity) {
+        entity.soilState.tick(level, pos, state);
+        entity.cropState.tick(level, pos, state, entity.soilState);
     }
 }

@@ -1,6 +1,7 @@
 package com.signifier.siedeflora.registry;
 
 import com.signifier.siedeflora.Siedeflora;
+import com.signifier.siedeflora.agriculture.crop.Crop;
 import com.signifier.siedeflora.agriculture.crop.Period;
 import com.signifier.siedeflora.agriculture.soil.SoilTexture;
 import net.minecraft.core.Registry;
@@ -15,11 +16,16 @@ public interface RegRegistry
 {
     ResourceKey<Registry<SoilTexture>> SOIL_KEY = ResourceKey.createRegistryKey(
             Siedeflora.id("soil"));
+    ResourceKey<Registry<Crop>> CROP_KEY = ResourceKey.createRegistryKey(Siedeflora.id("crop"));
     ResourceKey<Registry<Period>> PERIOD_KEY = ResourceKey.createRegistryKey(Siedeflora.id("period"));
 
     Registry<SoilTexture> SOIL = new RegistryBuilder<>(SOIL_KEY)
             .sync(true)
             .defaultKey(Siedeflora.id("simple"))
+            .create();
+    Registry<Crop> CROP = new RegistryBuilder<>(CROP_KEY)
+            .sync(true)
+            .defaultKey(Siedeflora.id("none"))
             .create();
     Registry<Period> PERIOD = new RegistryBuilder<>(PERIOD_KEY)
             .sync(true)
@@ -28,6 +34,7 @@ public interface RegRegistry
     @SubscribeEvent
     static void registerRegistries(final NewRegistryEvent event) {
         event.register(SOIL);
+        event.register(CROP);
         event.register(PERIOD);
     }
 }

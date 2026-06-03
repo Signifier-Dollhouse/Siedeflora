@@ -14,14 +14,14 @@ public interface BlockRegistry {
     DeferredBlock<SoilBlock> SOIL = BLOCKS.register("soil", () -> new SoilBlock(
             Block.Properties.of().strength(1.0f))
     );
-    DeferredBlock<AdvancedCropBlock> ADVANCED_CROP = BLOCKS.register("test_crop",
-            () -> new AdvancedCropBlock(
-                    Block.Properties.of().strength(0.5f))
-    );
+//    DeferredBlock<AdvancedCropBlock> ADVANCED_CROP = BLOCKS.register("test_crop",
+//            () -> new AdvancedCropBlock(
+//                    Block.Properties.of().strength(0.5f))
+//    );
 
     DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(
             Registries.BLOCK_ENTITY_TYPE, Siedeflora.MODID);
     DeferredHolder<BlockEntityType<?>, BlockEntityType<SoilBlockEntity>> SOIL_BETYPE = BLOCK_ENTITIES.register(
-            "soil", () -> BlockEntityType.Builder.of(SoilBlockEntity::new, SOIL.get()).build(null));
+            "soil", () -> new BlockEntityType<>(SoilBlockEntity::new, SOIL.get()));
 
 }
